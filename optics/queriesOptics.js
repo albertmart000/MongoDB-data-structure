@@ -83,12 +83,12 @@ printjson(db.clients.aggregate([
 
 var fs = require("fs");
 var JavaScriptObfuscator = require('javascript-obfuscator');
-fs.readFile('./queriesOptics.js', "UTF-8", function(err, data) {
+fs.readFile('/optics/queriesOptics.js', "UTF-8", function(err, data) {
     if (err) {
         throw err;
     }
     var obfuscationResult = JavaScriptObfuscator.obfuscate(data);
-    fs.writeFile('./queriesOpticsOfuscated.js', obfuscationResult.getObfuscatedCode() , function(err) {
+    fs.writeFile('/optics/queriesOpticsOfuscated.js', obfuscationResult.getObfuscatedCode() , function(err) {
         if(err) {
             return console.log(err);
         }
