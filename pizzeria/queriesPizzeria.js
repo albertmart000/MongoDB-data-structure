@@ -1,4 +1,4 @@
-var MongoClient = require('/home/albert/Escritorio/MongoDBProjects/node_modules/mongodb').MongoClient;
+var MongoClient = require('/node_modules/mongodb').MongoClient;
 const assert = require('assert');
 const url = 'mongodb://localhost:27017';
 use ("pizzeria");
@@ -71,12 +71,12 @@ printjson(db.orders.aggregate([
 
 var fs = require("fs");
 var JavaScriptObfuscator = require('javascript-obfuscator');
-fs.readFile('/home/albert/Escritorio/MongoDBProjects/pizzeria/queriesPizzeria.js', "UTF-8", function(err, data) {
+fs.readFile('/pizzeria/queriesPizzeria.js', "UTF-8", function(err, data) {
     if (err) {
         throw err;
     }
     var obfuscationResult = JavaScriptObfuscator.obfuscate(data);
-    fs.writeFile('/home/albert/Escritorio/MongoDBProjects/pizzeria/queriesPizzeriaOfuscated.js', obfuscationResult.getObfuscatedCode() , function(err) {
+    fs.writeFile('/pizzeria/queriesPizzeriaOfuscated.js', obfuscationResult.getObfuscatedCode() , function(err) {
         if(err) {
             return console.log(err);
         }
