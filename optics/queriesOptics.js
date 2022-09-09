@@ -1,4 +1,4 @@
-var MongoClient = require('/home/albert/Escritorio/MongoDBProjects/node_modules/mongodb').MongoClient;
+var MongoClient = require('/node_modules/mongodb').MongoClient;
 const assert = require('assert');
 const url = 'mongodb://localhost:27017';
 use ("optics");
@@ -83,12 +83,12 @@ printjson(db.clients.aggregate([
 
 var fs = require("fs");
 var JavaScriptObfuscator = require('javascript-obfuscator');
-fs.readFile('/home/albert/Escritorio/MongoDBProjects/optics/queriesOptics.js', "UTF-8", function(err, data) {
+fs.readFile('./queriesOptics.js', "UTF-8", function(err, data) {
     if (err) {
         throw err;
     }
     var obfuscationResult = JavaScriptObfuscator.obfuscate(data);
-    fs.writeFile('/home/albert/Escritorio/MongoDBProjects/optics/queriesOpticsOfuscated.js', obfuscationResult.getObfuscatedCode() , function(err) {
+    fs.writeFile('./queriesOpticsOfuscated.js', obfuscationResult.getObfuscatedCode() , function(err) {
         if(err) {
             return console.log(err);
         }
